@@ -164,28 +164,28 @@ col1, col2, col3, col4, col5 = st.columns(5)
 
 with col1:
     total_rentals = filtered_df['cnt'].sum()
-    st.metric("Total Rentals", f"{total_rentals:,}")
+    st.metric("Total Sewa", f"{total_rentals:,}")
 
 with col2:
     avg_daily = filtered_df.groupby('dteday')['cnt'].sum().mean()
-    st.metric("Avg Daily Rentals", f"{avg_daily:,.0f}")
+    st.metric("Rata Rata Sewa Harian", f"{avg_daily:,.0f}")
 
 with col3:
     casual_pct = (filtered_df['casual'].sum() / total_rentals * 100)
-    st.metric("Casual Users %", f"{casual_pct:.1f}%")
+    st.metric("Pengguna Casual %", f"{casual_pct:.1f}%")
 
 with col4:
     registered_pct = (filtered_df['registered'].sum() / total_rentals * 100)
-    st.metric("Registered Users %", f"{registered_pct:.1f}%")
+    st.metric("Pengguna Registered %", f"{registered_pct:.1f}%")
 
 with col5:
     peak_hour = filtered_df.groupby('hr')['cnt'].mean().idxmax()
-    st.metric("Peak Hour", f"{peak_hour}:00")
+    st.metric("Jam Sibuk", f"{peak_hour}:00")
 
 st.markdown("---")
 
 # Tabs
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["📊 Overview", "⏰ Temporal Analysis", "🌤️ Weather Impact", "👥 User Segmentation", "🎯 Clustering"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["📊 Overview", "⏰ Analisis Temporal", "🌤️ Dampak Cuaca", "👥 Segmentasi Pengguna", "🎯 Pengelompokkan"])
 
 # TAB 1: Overview
 with tab1:
