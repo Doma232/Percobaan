@@ -63,10 +63,10 @@ def load_data():
     df['day_of_week'] = df['dteday'].dt.dayofweek
     
     # Labels
-    season_labels = {1: 'Spring', 2: 'Summer', 3: 'Fall', 4: 'Winter'}
-    weather_labels = {1: 'Clear', 2: 'Mist', 3: 'Light Snow/Rain', 4: 'Heavy Rain/Snow'}
-    weekday_labels = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 
-                      4: 'Friday', 5: 'Saturday', 6: 'Sunday'}
+    season_labels = {1: 'Semi', 2: 'Hujan', 3: 'Panas', 4: 'Salju'}
+    weather_labels = {1: 'Ekstrem', 2: 'Kabut', 3: 'Salju Ringan/Hujan', 4: 'Dingin'}
+    weekday_labels = {0: 'Senin', 1: 'Selasa', 2: 'Rabu', 3: 'Kamis', 
+                      4: 'Jumat', 5: 'Sabtu', 6: 'Minggu'}
     
     df['season_label'] = df['season'].map(season_labels)
     df['weather_label'] = df['weathersit'].map(weather_labels)
@@ -108,26 +108,26 @@ with st.sidebar:
     
     # Year filter
     years = sorted(df['year'].unique())
-    selected_year = st.multiselect("Select Year", years, default=years)
+    selected_year = st.multiselect("Pilih Tahun", years, default=years)
     
     # Season filter
     seasons = df['season_label'].unique()
-    selected_season = st.multiselect("Select Season", seasons, default=seasons)
+    selected_season = st.multiselect("Pilih Musim", seasons, default=seasons)
     
     # Weather filter
     weather_conditions = df['weather_label'].unique()
     selected_weather = st.multiselect("Pilih Cuaca", weather_conditions, default=weather_conditions)
     
     # Working day filter
-    working_day_option = st.radio("Day Type", ["Semua", "Hari Kerja", "Hari Libur"])
+    working_day_option = st.radio("Pilih Hari", ["Semua", "Hari Kerja", "Hari Libur"])
     
     st.markdown("---")
     
     # Info
     st.info("""
-    **About This Dashboard**
-    
-    This interactive dashboard provides comprehensive analysis of bike sharing patterns including:
+    **Tentang Dasbor Ini**
+
+    Dasbor interaktif ini menyediakan analisis tentang pola Bike Sharing, termasuk:
     - Temporal trends
     - Weather impact
     - User segmentation
