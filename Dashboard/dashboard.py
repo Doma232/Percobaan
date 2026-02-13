@@ -65,7 +65,7 @@ def load_data():
     # Labels
     season_labels = {1: 'Spring', 2: 'Summer', 3: 'Fall', 4: 'Winter'}
     weather_labels = {1: 'Clear', 2: 'Mist', 3: 'Light Snow/Rain', 4: 'Heavy Rain/Snow'}
-    weekday_labels = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 
+    weekday_labels = {0: 'Senin', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 
                       4: 'Friday', 5: 'Saturday', 6: 'Sunday'}
     
     df['season_label'] = df['season'].map(season_labels)
