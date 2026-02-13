@@ -116,10 +116,10 @@ with st.sidebar:
     
     # Weather filter
     weather_conditions = df['weather_label'].unique()
-    selected_weather = st.multiselect("Select Weather", weather_conditions, default=weather_conditions)
+    selected_weather = st.multiselect("Pilih Cuaca", weather_conditions, default=weather_conditions)
     
     # Working day filter
-    working_day_option = st.radio("Day Type", ["All", "Working Day", "Holiday"])
+    working_day_option = st.radio("Day Type", ["Semua", "Hari Kerja", "Hari Libur"])
     
     st.markdown("---")
     
